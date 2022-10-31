@@ -2,8 +2,8 @@ import Head from "next/head";
 import Link from "next/link";
 
 export default function Pokemon({
-  name,
-  frontViewUrl,
+  name = "not ready",
+  frontViewUrl = "",
 }: {
   name: string;
   height: number;
@@ -20,7 +20,7 @@ export default function Pokemon({
       </Head>
 
       <div className={className}>
-        <img src={frontViewUrl} alt="bird" />
+        <img src={frontViewUrl} alt={name} />
         <Link
           href="/"
           className="absolute top-4 right-4 p-4 bg-slate-100 rounded"
@@ -32,18 +32,14 @@ export default function Pokemon({
   );
 }
 
-export async function getStaticPaths() {
-  return {
-    paths: [
-      { params: { birdName: "lugia" } },
-      { params: { birdName: "ho-oh" } },
-    ],
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params }: any) {
+export async function getServerSideProps({
+  params,
+}: {
+  params: { birdName: string };
+}) {
   const birdName = params["birdName"];
+
+  console.log("getServerSideProps called for", birdName);
 
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${birdName}`);
   const birdData = await response.json();
