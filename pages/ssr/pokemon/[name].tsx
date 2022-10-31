@@ -8,9 +8,15 @@ export default function Pokemon({
   name: string;
   frontViewUrl: string;
 }) {
-  const className = `container mx-auto relative min-h-screen p-12 ${
-    name === "lugia" ? "bg-blue" : "bg-orange-400"
-  } flex justify-center items-center`;
+  const className = `container mx-auto relative min-h-screen p-12 flex justify-center items-center ${
+    name === "lugia"
+      ? "bg-blue"
+      : name === "ho-oh"
+      ? "bg-orange-400"
+      : name === "mew"
+      ? "bg-pink-400"
+      : "bg-fuchsia-400"
+  } `;
   return (
     <>
       <Head>
@@ -33,20 +39,20 @@ export default function Pokemon({
 export async function getServerSideProps({
   params,
 }: {
-  params: { birdName: string };
+  params: { name: string };
 }) {
-  const birdName = params["birdName"];
+  const name = params["name"];
 
-  console.log("getServerSideProps called for", birdName);
+  console.log("getServerSideProps called for", name);
 
-  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${birdName}`);
-  const birdData = await response.json();
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+  const pokemonData = await response.json();
 
   return {
     props: {
-      name: birdData["name"],
+      name: pokemonData["name"],
       frontViewUrl:
-        birdData["sprites"]["other"]["dream_world"]["front_default"],
+        pokemonData["sprites"]["other"]["dream_world"]["front_default"],
     },
   };
 }

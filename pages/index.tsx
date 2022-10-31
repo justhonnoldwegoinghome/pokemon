@@ -8,7 +8,10 @@ const Home: NextPage = () => {
       <Head>
         <title>Pokemon</title>
       </Head>
-      <div className="container mx-auto h-screen flex flex-col items-center justify-center">
+      <div
+        id="birds"
+        className="container mx-auto h-screen flex flex-col items-center justify-center"
+      >
         <h1 className="text-3xl m-8">Battle of the birds</h1>
 
         <section className="flex gap-4">
@@ -46,6 +49,56 @@ const Home: NextPage = () => {
               </Link>
               <Link
                 href="/ssg/pokemon/ho-oh"
+                className="text-xs p-2 m-2 border rounded-full"
+              >
+                SSG
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div
+        id="mewz"
+        className="container mx-auto h-screen flex flex-col items-center justify-center"
+      >
+        <h1 className="text-3xl m-8">Battle of the mews</h1>
+
+        <section className="flex gap-4">
+          <div>
+            <div className="p-4 bg-pink-400 rounded flex flex-col gap-4 justify-center">
+              <h2 className="text-center text-xl">Mew</h2>
+              <p className="text-sm text-white">The one and only</p>
+            </div>
+            <div className="flex gap-8 justify-center">
+              <Link
+                href="/ssr/pokemon/mew"
+                className="text-xs p-2 m-2 border rounded-full"
+              >
+                SSR
+              </Link>
+              <Link
+                href="/ssg/pokemon/mew"
+                className="text-xs p-2 m-2 border rounded-full"
+              >
+                SSG
+              </Link>
+            </div>
+          </div>
+          <div>
+            <div className="p-4 bg-fuchsia-400 rounded flex flex-col gap-4 justify-center">
+              <h2 className="text-center text-xl">Mewtwo</h2>
+              <p className="text-sm text-white">Genetic Pokemon</p>
+            </div>
+            <div className="flex gap-8 justify-center">
+              <Link
+                href="/ssr/pokemon/mewtwo"
+                className="text-xs p-2 m-2 border rounded-full"
+              >
+                SSR
+              </Link>
+              <Link
+                href="/ssg/pokemon/mewtwo"
                 className="text-xs p-2 m-2 border rounded-full"
               >
                 SSG
