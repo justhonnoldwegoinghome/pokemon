@@ -13,14 +13,14 @@ const Home: NextPage = () => {
 
         <section className="flex gap-4">
           <Link
-            href=""
+            href="pokemon/lugia"
             className="p-4 bg-blue rounded flex flex-col gap-4 justify-center"
           >
             <h2 className="text-center text-xl">Lugia</h2>
             <p className="text-sm text-white">Guardian of the seas</p>
           </Link>
           <Link
-            href=""
+            href="pokemon/ho-oh"
             className="p-4 bg-orange-400 rounded flex flex-col gap-4 justify-center"
           >
             <h2 className="text-center text-xl">Ho-Oh</h2>
